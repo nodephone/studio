@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { TableMeta } from "@/lib/api/database";
 import { Button, Input, Badge, Skeleton } from "@/components/ui";
 import {
@@ -52,15 +53,27 @@ export function TablesSidebar({
               Tables Schema
             </h3>
           </div>
-          <Button
-            onClick={onCreateTableClick}
-            variant="primary"
-            size="sm"
-            className="h-7 px-2 text-[11px] bg-emerald-600 hover:bg-emerald-500 text-white font-semibold cursor-pointer border-emerald-500"
-            leftIcon={<Plus className="w-3.5 h-3.5" />}
-          >
-            New Table
-          </Button>
+          <div className="flex items-center space-x-1">
+            <Link href="/dashboard/database/designer">
+              <Button
+                variant="outline"
+                size="sm"
+                className="h-7 px-2 text-[11px] cursor-pointer"
+                title="Open Visual Table Designer"
+              >
+                Designer
+              </Button>
+            </Link>
+            <Button
+              onClick={onCreateTableClick}
+              variant="primary"
+              size="sm"
+              className="h-7 px-2 text-[11px] bg-emerald-600 hover:bg-emerald-500 text-white font-semibold cursor-pointer border-emerald-500"
+              leftIcon={<Plus className="w-3.5 h-3.5" />}
+            >
+              New
+            </Button>
+          </div>
         </div>
 
         {/* Search */}

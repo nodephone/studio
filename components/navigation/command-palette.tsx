@@ -22,6 +22,7 @@ import {
   Code2,
   BookOpen,
   Sparkles,
+  Sliders,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -89,6 +90,17 @@ export function CommandPalette() {
       badge: "PRD 004",
       action: () => {
         router.push("/dashboard/database");
+        close();
+      },
+    },
+    {
+      id: "module-designer",
+      icon: Sliders,
+      title: "Visual Table Designer & DDL Generator",
+      category: "Modules",
+      badge: "PRD 005",
+      action: () => {
+        router.push("/dashboard/database/designer");
         close();
       },
     },
