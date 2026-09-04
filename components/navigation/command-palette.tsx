@@ -86,8 +86,11 @@ export function CommandPalette() {
       icon: Database,
       title: "Database Inspector & Tables",
       category: "Modules",
-      badge: "PRD 002",
-      action: () => close(),
+      badge: "PRD 004",
+      action: () => {
+        router.push("/dashboard/database");
+        close();
+      },
     },
     {
       id: "module-auth",

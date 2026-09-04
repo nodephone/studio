@@ -35,8 +35,8 @@ export function Sidebar() {
       name: "Database",
       href: "/dashboard/database",
       icon: Database,
-      ready: false,
-      badge: "PRD 002",
+      ready: true,
+      badge: "PRD 004",
     },
     {
       name: "Authentication",
