@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useAuthStore } from "@/stores/auth-store";
-import { Avatar } from "@/components/ui/avatar";
+import { Avatar } from "@/components/ui";
 import {
   LogOut,
   User,

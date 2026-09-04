@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Providers } from "./providers";
-import { ToastProvider } from "@/components/ui/toast";
+import { ToastProvider } from "@/components/ui";
 
 export const metadata: Metadata = {
   title: "NodePhone Studio",
