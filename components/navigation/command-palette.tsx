@@ -61,13 +61,14 @@ export function CommandPalette() {
 
   const items: CommandItem[] = [
     {
-      id: "nav-dashboard",
-      icon: LayoutDashboard,
-      title: "Go to Dashboard Overview",
+      id: "nav-sql",
+      icon: Code2,
+      title: "SQL Editor Workspace",
       category: "Navigation",
-      shortcut: "G D",
+      shortcut: "⌘↵",
+      badge: "PRD 006",
       action: () => {
-        router.push("/dashboard");
+        router.push("/dashboard/sql");
         close();
       },
     },

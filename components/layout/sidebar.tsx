@@ -17,6 +17,7 @@ import {
   BookOpen,
   HelpCircle,
   Cpu,
+  Code2,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -30,6 +31,13 @@ export function Sidebar() {
       href: "/dashboard",
       icon: LayoutDashboard,
       ready: true,
+    },
+    {
+      name: "SQL Editor",
+      href: "/dashboard/sql",
+      icon: Code2,
+      ready: true,
+      badge: "PRD 006",
     },
     {
       name: "Database",
