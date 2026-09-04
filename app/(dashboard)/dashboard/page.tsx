@@ -3,9 +3,8 @@
 import { useAuthStore } from "@/stores/auth-store";
 import { useWorkspaceStore } from "@/stores/workspace-store";
 import { useCommandPaletteStore } from "@/stores/command-palette-store";
-import { Button } from "@/components/ui/button";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { Button, Badge } from "@/components/ui";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/layout";
 import {
   Database,
   Lock,
@@ -22,6 +21,7 @@ import {
   ArrowUpRight,
   Sparkles,
 } from "lucide-react";
+import Link from "next/link";
 
 export default function DashboardPage() {
   const { user } = useAuthStore();
@@ -33,7 +33,7 @@ export default function DashboardPage() {
       title: "Database Inspector",
       description: "Realtime database tables, schema browser, SQL runner & row editor.",
       icon: Database,
-      prd: "PRD 002",
+      prd: "PRD 003",
       status: "Planned",
       color: "emerald",
     },
@@ -41,7 +41,7 @@ export default function DashboardPage() {
       title: "Auth & Users",
       description: "Manage users, RLS policies, OAuth providers, and JWT secrets.",
       icon: Lock,
-      prd: "PRD 003",
+      prd: "PRD 004",
       status: "Planned",
       color: "indigo",
     },
@@ -49,7 +49,7 @@ export default function DashboardPage() {
       title: "Storage Buckets",
       description: "Object storage explorer, bucket policies, and file uploader.",
       icon: HardDrive,
-      prd: "PRD 004",
+      prd: "PRD 005",
       status: "Planned",
       color: "amber",
     },
@@ -57,7 +57,7 @@ export default function DashboardPage() {
       title: "Realtime Engine",
       description: "WebSocket channels, live event streams, and broadcast monitors.",
       icon: Activity,
-      prd: "PRD 005",
+      prd: "PRD 006",
       status: "Planned",
       color: "purple",
     },
@@ -84,14 +84,21 @@ export default function DashboardPage() {
             Welcome back, {user?.name || "Developer"} 👋
           </h1>
           <p className="text-sm text-neutral-400 max-w-xl">
-            NodePhone Studio shell is ready. The application routing, auth gate, workspace switcher, and keyboard shortcuts are operational.
+            NodePhone Studio Design System (PRD 002) is active with 19 UI primitives, design tokens, and motion presets.
           </p>
         </div>
 
         <div className="flex items-center space-x-3 shrink-0 relative z-10">
+          <Link href="/dashboard/design-system">
+            <Button variant="primary" size="sm" className="bg-emerald-600 hover:bg-emerald-500 text-white font-semibold cursor-pointer border-emerald-500">
+              <Sparkles className="w-4 h-4 mr-2" />
+              <span>Design System Showcase</span>
+            </Button>
+          </Link>
           <Button
             onClick={openCommandPalette}
             variant="secondary"
+            size="sm"
             className="bg-neutral-800 hover:bg-neutral-700 text-neutral-100 border-neutral-700 cursor-pointer"
           >
             <Search className="w-4 h-4 mr-2 text-emerald-400" />
@@ -152,32 +159,32 @@ export default function DashboardPage() {
         <Card className="border-neutral-200 dark:border-neutral-800">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 p-4">
             <CardTitle className="text-xs font-semibold text-neutral-500 uppercase tracking-wider">
-              Registered Projects
+              Design System
             </CardTitle>
-            <Activity className="w-4 h-4 text-emerald-500" />
+            <Sparkles className="w-4 h-4 text-emerald-500" />
           </CardHeader>
           <CardContent className="px-4 pb-4">
             <div className="text-xl font-bold text-neutral-900 dark:text-neutral-100">
-              {activeWorkspace.projectCount} Services
+              19 Primitives
             </div>
-            <p className="text-xs text-neutral-500 mt-1">Ready for PRD 002-005</p>
+            <p className="text-xs text-neutral-500 mt-1">PRD 002 Complete</p>
           </CardContent>
         </Card>
       </div>
 
-      {/* Modules Roadmap Grid */}
+      {/* Feature Modules Grid */}
       <div className="space-y-4">
         <div className="flex items-center justify-between">
           <div>
             <h2 className="text-lg font-bold text-neutral-900 dark:text-neutral-100">
-              Studio Feature Modules
+              Studio Feature Roadmap
             </h2>
             <p className="text-xs text-neutral-500">
-              Future modules will connect seamlessly into this application shell layout.
+              All future modules will consume the reusable design system primitives.
             </p>
           </div>
           <Badge variant="outline" className="font-mono text-xs">
-            PRD 001 Complete
+            PRD 002 Complete
           </Badge>
         </div>
 
@@ -216,7 +223,7 @@ export default function DashboardPage() {
                 </CardContent>
 
                 <CardFooter className="px-5 py-3 bg-neutral-50 dark:bg-neutral-900/50 border-t border-neutral-100 dark:border-neutral-800/80 flex items-center justify-between text-xs text-neutral-400">
-                  <span>Module Shell Registered</span>
+                  <span>Design Primitives Enabled</span>
                   <ArrowUpRight className="w-4 h-4 text-neutral-400 group-hover:text-emerald-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </CardFooter>
               </Card>
@@ -224,59 +231,6 @@ export default function DashboardPage() {
           })}
         </div>
       </div>
-
-      {/* System Shortcuts & Architecture Info */}
-      <Card className="border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-6 space-y-4">
-        <div className="flex items-center justify-between border-b border-neutral-100 dark:border-neutral-800 pb-3">
-          <div className="flex items-center space-x-2">
-            <Sparkles className="w-5 h-5 text-emerald-500" />
-            <h3 className="font-semibold text-sm text-neutral-900 dark:text-neutral-100">
-              Keyboard Shortcuts & Shell Controls
-            </h3>
-          </div>
-          <span className="text-xs text-neutral-400 font-mono">
-            8px Grid System
-          </span>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
-          <div className="p-3 rounded-xl bg-neutral-50 dark:bg-neutral-800/50 border border-neutral-200/60 dark:border-neutral-800 space-y-1">
-            <div className="flex items-center justify-between">
-              <span className="font-medium text-neutral-700 dark:text-neutral-300">Command Palette</span>
-              <kbd className="px-1.5 py-0.5 font-mono text-[10px] bg-white dark:bg-neutral-700 rounded border border-neutral-300 dark:border-neutral-600">
-                ⌘K / Ctrl+K
-              </kbd>
-            </div>
-            <p className="text-neutral-500 text-[11px]">
-              Open global search, jump to modules, or execute shortcuts.
-            </p>
-          </div>
-
-          <div className="p-3 rounded-xl bg-neutral-50 dark:bg-neutral-800/50 border border-neutral-200/60 dark:border-neutral-800 space-y-1">
-            <div className="flex items-center justify-between">
-              <span className="font-medium text-neutral-700 dark:text-neutral-300">Toggle Sidebar</span>
-              <kbd className="px-1.5 py-0.5 font-mono text-[10px] bg-white dark:bg-neutral-700 rounded border border-neutral-300 dark:border-neutral-600">
-                ⌘B / Ctrl+B
-              </kbd>
-            </div>
-            <p className="text-neutral-500 text-[11px]">
-              Collapse or expand the navigation sidebar instantly.
-            </p>
-          </div>
-
-          <div className="p-3 rounded-xl bg-neutral-50 dark:bg-neutral-800/50 border border-neutral-200/60 dark:border-neutral-800 space-y-1">
-            <div className="flex items-center justify-between">
-              <span className="font-medium text-neutral-700 dark:text-neutral-300">Workspace Switcher</span>
-              <kbd className="px-1.5 py-0.5 font-mono text-[10px] bg-white dark:bg-neutral-700 rounded border border-neutral-300 dark:border-neutral-600">
-                Dropdown
-              </kbd>
-            </div>
-            <p className="text-neutral-500 text-[11px]">
-              Switch active environments or create new project spaces.
-            </p>
-          </div>
-        </div>
-      </Card>
     </div>
   );
 }

@@ -21,6 +21,7 @@ import {
   ExternalLink,
   Code2,
   BookOpen,
+  Sparkles,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -66,6 +67,17 @@ export function CommandPalette() {
       shortcut: "G D",
       action: () => {
         router.push("/dashboard");
+        close();
+      },
+    },
+    {
+      id: "nav-ds",
+      icon: Sparkles,
+      title: "Design System Showcase & Tokens",
+      category: "Navigation",
+      badge: "PRD 002",
+      action: () => {
+        router.push("/dashboard/design-system");
         close();
       },
     },

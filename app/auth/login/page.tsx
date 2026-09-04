@@ -3,10 +3,8 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuthStore } from "@/stores/auth-store";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { Button, Input, Badge } from "@/components/ui";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/layout";
 import { Lock, Mail, ArrowRight, ShieldCheck, Cpu, KeyRound } from "lucide-react";
 
 export default function LoginPage() {
@@ -60,7 +58,7 @@ export default function LoginPage() {
             </p>
           </div>
           <Badge variant="emerald" className="mt-1">
-            PRD 001 • Application Shell Foundation
+            PRD 002 • Studio Design System
           </Badge>
         </div>
 

@@ -63,6 +63,13 @@ export function Sidebar() {
 
   const secondaryNav = [
     {
+      name: "Design System",
+      href: "/dashboard/design-system",
+      icon: Sparkles,
+      ready: true,
+      badge: "PRD 002",
+    },
+    {
       name: "Settings",
       href: "/dashboard/settings",
       icon: Settings,
